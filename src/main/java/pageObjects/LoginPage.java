@@ -22,6 +22,12 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//*[@id='login_button_container']/div/form/div[3]")
     private WebElement emptyUsernameFieldErrorMessage;
 
+    @FindBy(xpath = "//*[@id='login_button_container']/div/form/div[3]")
+    private WebElement emptyPasswordFieldErrorMessage;
+
+    @FindBy(xpath = "//*[@id='login_button_container']/div/form/div[3]")
+    private WebElement InvalidUsernameOrPasswordErrorMessage;
+
 
 
 
@@ -40,6 +46,14 @@ public class LoginPage extends BasePage {
 
     public WebElement getEmptyUsernameFieldErrorMessage() {
         return emptyUsernameFieldErrorMessage;
+    }
+
+    public WebElement getEmptyPasswordFieldErrorMessage() {
+        return emptyPasswordFieldErrorMessage;
+    }
+
+    public WebElement getInvalidUsernameOrPasswordErrorMessage() {
+        return InvalidUsernameOrPasswordErrorMessage;
     }
 
     public void inputUsername(String username) {

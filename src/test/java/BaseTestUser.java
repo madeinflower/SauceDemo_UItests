@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.LoginPage;
+import utils.RandomDataGenerator;
 
 public class BaseTestUser {
     protected WebDriver driver;
@@ -20,6 +21,10 @@ public class BaseTestUser {
         loginPage.inputUsername("standard_user");
         loginPage.inputPassword("secret_sauce");
         loginPage.submitForm();
+    }
+
+    public String getRandomString(int maxLength) {
+        return RandomDataGenerator.generateRandomString(maxLength);
     }
 
     @AfterEach
