@@ -25,6 +25,7 @@ public class LoginStandardUser extends BaseTestUser {
         String randomUsername = getRandomString(15);
         loginPage.inputUsername(randomUsername);
         loginPage.inputPassword("secret_sauce");
+        loginPage.submitForm();
         assertTrue(loginPage.getInvalidUsernameOrPasswordErrorMessage().isDisplayed());
     }
 
@@ -35,6 +36,7 @@ public class LoginStandardUser extends BaseTestUser {
         loginPage.inputUsername("standard_user");
         String randomPassword = getRandomString(15);
         loginPage.inputPassword(randomPassword);
+        loginPage.submitForm();
         assertTrue(loginPage.getInvalidUsernameOrPasswordErrorMessage().isDisplayed());
     }
 
@@ -43,6 +45,7 @@ public class LoginStandardUser extends BaseTestUser {
     public void testLoginWithEmptyUsernameField() {
         loginPage = new LoginPage(driver);
         loginPage.inputPassword("secret_sauce");
+        loginPage.submitForm();
         assertTrue(loginPage.getEmptyUsernameFieldErrorMessage().isDisplayed());
         assertTrue(loginPage.getLoginButton().isEnabled()); // this line is written in accordance with realization but I would make this button disabled in this case
     }
@@ -52,6 +55,7 @@ public class LoginStandardUser extends BaseTestUser {
     public void testLoginWithEmptyPasswordField() {
         loginPage = new LoginPage(driver);
         loginPage.inputUsername("standard_user");
+        loginPage.submitForm();
         assertTrue(loginPage.getEmptyPasswordFieldErrorMessage().isDisplayed());
         assertTrue(loginPage.getLoginButton().isEnabled()); // this line is written in accordance with realization but I would make this button disabled in this case
     }
@@ -60,7 +64,8 @@ public class LoginStandardUser extends BaseTestUser {
     @Description("Login test with Standard user: all input fields empty")
     public void testLoginWithAllInputFieldsEmpty() {
         loginPage = new LoginPage(driver);
-        assertTrue(loginPage.getEmptyUsernameFieldErrorMessage().isDisplayed());
+        loginPage.submitForm();
+        assertTrue(loginPage.getEmptyUsernameAndPasswordErrorMessage().isDisplayed());
         assertTrue(loginPage.getLoginButton().isEnabled()); // this line is written in accordance with realization but I would make this button disabled in this case
     }
 

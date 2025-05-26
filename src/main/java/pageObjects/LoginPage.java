@@ -19,17 +19,18 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@id='login-button']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//*[@id='login_button_container']/div/form/div[3]")
+
+    @FindBy(xpath = "//h3[@data-test='error' and text()='Epic sadface: Username is required']")
     private WebElement emptyUsernameFieldErrorMessage;
 
-    @FindBy(xpath = "//*[@id='login_button_container']/div/form/div[3]")
+    @FindBy(xpath = "//h3[@data-test='error' and text()='Epic sadface: Password is required']")
     private WebElement emptyPasswordFieldErrorMessage;
 
-    @FindBy(xpath = "//*[@id='login_button_container']/div/form/div[3]")
+    @FindBy(xpath = "//h3[@data-test='error' and text()='Epic sadface: Username is required']")
+    private WebElement emptyUsernameAndPasswordErrorMessage;
+
+    @FindBy(xpath = "//h3[@data-test='error' and text()='Epic sadface: Username and password do not match any user in this service']")
     private WebElement InvalidUsernameOrPasswordErrorMessage;
-
-
-
 
 
     public WebElement getUsernameInputField() {
@@ -52,9 +53,14 @@ public class LoginPage extends BasePage {
         return emptyPasswordFieldErrorMessage;
     }
 
+    public WebElement getEmptyUsernameAndPasswordErrorMessage() {
+        return emptyUsernameAndPasswordErrorMessage;
+    }
+
     public WebElement getInvalidUsernameOrPasswordErrorMessage() {
         return InvalidUsernameOrPasswordErrorMessage;
     }
+
 
     public void inputUsername(String username) {
         usernameInputField.clear();

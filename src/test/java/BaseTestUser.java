@@ -33,5 +33,4 @@ public class BaseTestUser {
             driver.quit();
         }
     }
-
 }
