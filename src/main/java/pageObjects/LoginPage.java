@@ -30,7 +30,10 @@ public class LoginPage extends BasePage {
     private WebElement emptyUsernameAndPasswordErrorMessage;
 
     @FindBy(xpath = "//h3[@data-test='error' and text()='Epic sadface: Username and password do not match any user in this service']")
-    private WebElement InvalidUsernameOrPasswordErrorMessage;
+    private WebElement invalidUsernameOrPasswordErrorMessage;
+
+    @FindBy(xpath = "//h3[@data-test='error' and text()='Epic sadface: Sorry, this user has been locked out.']")
+    private WebElement lockedoutUserErrorMessage;
 
 
     public WebElement getUsernameInputField() {
@@ -58,9 +61,12 @@ public class LoginPage extends BasePage {
     }
 
     public WebElement getInvalidUsernameOrPasswordErrorMessage() {
-        return InvalidUsernameOrPasswordErrorMessage;
+        return invalidUsernameOrPasswordErrorMessage;
     }
 
+    public WebElement getLockedoutUserErrorMessage() {
+        return lockedoutUserErrorMessage;
+    }
 
     public void inputUsername(String username) {
         usernameInputField.clear();

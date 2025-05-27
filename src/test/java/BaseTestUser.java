@@ -27,6 +27,16 @@ public class BaseTestUser {
         return RandomDataGenerator.generateRandomString(maxLength);
     }
 
+    public boolean isAlertPresent() {
+        try {
+            driver.switchTo().alert().accept();
+            return true;
+        } catch (org.openqa.selenium.NoAlertPresentException e) {
+            return false;
+        }
+    }
+
+
     @AfterEach
     public void tearDown() {
         if (driver != null) {
