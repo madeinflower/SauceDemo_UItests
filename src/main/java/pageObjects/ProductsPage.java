@@ -13,6 +13,14 @@ public class ProductsPage extends BasePage {
     @FindBy (xpath = "//span[@class='title']")
     private WebElement productsTitle;
 
+    @FindBy (xpath = "//button[@id='add-to-cart-sauce-labs-backpack']")
+    private WebElement addToCartButton;
+
+    @FindBy (xpath = "//button[@id='remove-sauce-labs-backpack']")
+    private WebElement removeFromCartButton;
+
+
+
     @FindBy (xpath = "//button[@id='react-burger-menu-btn']")
     private WebElement hamburgerMenu;
 
@@ -22,6 +30,14 @@ public class ProductsPage extends BasePage {
 
     public WebElement getProductsTitle() {
         return productsTitle;
+    }
+
+    public WebElement getAddToCartButton() {
+        return addToCartButton;
+    }
+
+    public WebElement getRemoveFromCartButton() {
+        return removeFromCartButton;
     }
 
     public WebElement getHamburgerMenu() {

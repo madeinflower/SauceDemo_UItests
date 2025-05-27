@@ -10,7 +10,7 @@ public class LoginLockedOutUser extends BaseTestUser {
 
     @Test
     @Description("Locked out user login")
-    public void lockedOutUserLogin() {
+    public void testLockedOutUserLogin() {
         loginPage = new LoginPage(driver);
         loginPage.inputUsername("locked_out_user");
         loginPage.inputPassword("secret_sauce");

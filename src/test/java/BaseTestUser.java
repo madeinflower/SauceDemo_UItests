@@ -36,7 +36,6 @@ public class BaseTestUser {
         }
     }
 
-
     @AfterEach
     public void tearDown() {
         if (driver != null) {
