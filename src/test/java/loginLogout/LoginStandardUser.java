@@ -1,3 +1,5 @@
+package loginLogout;
+
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;

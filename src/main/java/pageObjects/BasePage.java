@@ -27,5 +27,7 @@ public class BasePage {
         if (!element.isDisplayed()) {
             throw new AssertionError("Element is not seen: " + element);
         }
+
+
     }
 }

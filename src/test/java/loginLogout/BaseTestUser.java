@@ -1,9 +1,16 @@
+package loginLogout;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pageObjects.LoginPage;
 import utils.RandomDataGenerator;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BaseTestUser {
     protected WebDriver driver;

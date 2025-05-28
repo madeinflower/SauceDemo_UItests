@@ -1,3 +1,5 @@
+package loginLogout;
+
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
 
@@ -19,10 +21,10 @@ public class LoginErrorUser extends BaseTestUser {
         loginPage.inputPassword("secret_sauce");
         loginPage.submitForm();
         productsPage = new ProductsPage(driver);
-        productsPage.getAddToCartButton().click();
-        assertTrue(productsPage.getRemoveFromCartButton().isDisplayed(), "Remove from Cart button is visible");
-        productsPage.getRemoveFromCartButton().click();
-        assertTrue(productsPage.getRemoveFromCartButton().isDisplayed(), "Remove button should still be visible after clicking");
+        productsPage.getAddToCartSauceLabsBackpackButton().click();
+        assertTrue(productsPage.getRemoveFromCartSauceLabsBackpackButton().isDisplayed(), "Remove from Cart button is visible");
+        productsPage.getRemoveFromCartSauceLabsBackpackButton().click();
+        assertTrue(productsPage.getRemoveFromCartSauceLabsBackpackButton().isDisplayed(), "Remove button should still be visible after clicking");
     }
 }
 
