@@ -1,11 +1,12 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import java.time.Duration;
 
@@ -51,6 +52,10 @@ public class ProductsPage extends BasePage {
     @FindBy (xpath = "//a[@id='logout_sidebar_link']")
     private WebElement logOutButton;
 
+    @FindBy (xpath = "//select[@class='product_sort_container']")
+    private WebElement sortingDropDown;
+
+
 
     public WebElement getProductsTitle() {
         return productsTitle;
@@ -80,9 +85,7 @@ public class ProductsPage extends BasePage {
         return removeFromCartTestAllTheThingsButton;
     }
 
-    public WebElement getEmptyShoppingCart() {
-        return emptyShoppingCart;
-    }
+    public WebElement getEmptyShoppingCart() { return emptyShoppingCart; }
 
     public WebElement getShoppingCart() {
         return shoppingCart;
@@ -95,4 +98,31 @@ public class ProductsPage extends BasePage {
     public WebElement getLogOutButton() {
         return logOutButton;
     }
+
+    public WebElement getSortingDropDown() {return sortingDropDown; }
+
+
+
+
+    public List<String> getAllProductNames() {
+        List<WebElement> productNameElements = driver.findElements(By.className("inventory_item_name"));
+        return productNameElements.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+    }
+
+    public List<Double> getAllProductPrices() {
+        return driver.findElements(By.className("inventory_item_price"))
+                .stream().map(e -> Double.parseDouble(e.getText().replace("$", "")))
+                .collect(Collectors.toList());
+    }
+
+    public void clearAllProductsForTest() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(
+                "document.querySelectorAll('.inventory_item').forEach(function(e) { e.remove(); });"
+        );
+    }
+
+
 }
